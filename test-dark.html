@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <title>Test Dark Mode</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-black dark:text-white p-10">
+
+  <button id="toggle" class="px-4 py-2 bg-gray-300 dark:bg-gray-700 text-black dark:text-white rounded">
+    Toggle Dark Mode
+  </button>
+
+  <h1 class="mt-4 text-2xl">Hello World</h1>
+
+  <script>
+    const btn = document.getElementById('toggle');
+    const html = document.documentElement;
+
+    btn.addEventListener('click', () => {
+      html.classList.toggle('dark');
+    });
+  </script>
+</body>
+</html>

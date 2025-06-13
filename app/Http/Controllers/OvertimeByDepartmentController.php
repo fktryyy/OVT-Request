@@ -67,7 +67,7 @@ class OvertimeByDepartmentController extends Controller
         }
     
         if (collect($responses)->every(fn($r) => $r->successful())) {
-            return redirect()->back()->with('success', 'Semua data lembur berhasil disimpan.');
+            return redirect()->back()->with('success', 'Semua data lembur berhasil disimpan.')->with('clear_batch', true);
         } else {
             return redirect()->back()->with('error', 'Beberapa data lembur gagal disimpan.');
         }

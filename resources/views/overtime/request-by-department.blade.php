@@ -84,6 +84,18 @@
 
         <button type="submit" class="mt-6 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded">Kirim Lembur</button>
     </form>
+
+    @if(session('clear_batch'))
+    <script>
+        localStorage.removeItem('currentBatch');
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('masterBatchDisplay').textContent = 'Tidak ada batch';
+            document.getElementById('master_batch').value = '';
+        });
+    </script>
+@endif
+
+
 </div>
 
 <script>
@@ -159,9 +171,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    form.addEventListener('submit', () => {
-        localStorage.removeItem('currentBatch');
-    });
+    document.querySelector('form').addEventListener('submit', function (e) {
+    setTimeout(() => {
+        if (document.body.innerText.includes('Semua data lembur berhasil disimpan')) {
+            localStorage.removeItem('currentBatch');
+        }
+    }, 500);
+});
 
     tampilkanBatch();
 
